@@ -3,6 +3,5 @@
 
 # WordPress
 /wp/wp-content/*
-!/wp/wp-content/themes
+!/wp/wp-content/themes/wp-api
 wp/wp-content/themes/*
-wp/wp-config.php
