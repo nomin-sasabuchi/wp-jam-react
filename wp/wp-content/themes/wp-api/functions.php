@@ -9,9 +9,6 @@
 *
 */
 
-//WordPressリセット
-include( get_template_directory().'/functions/remove.php' );
-
 //Dashboard 
 include( get_template_directory().'/functions/dashboard.php' );
 
@@ -22,4 +19,7 @@ include( get_template_directory().'/functions/custom-post.php' );
 include( get_template_directory().'/functions/option.php' );
 
 //WordPressリセット
-include( get_template_directory().'/functions/api.php' );
+// include( get_template_directory().'/functions/remove.php' );
+
+//api設定
+// include( get_template_directory().'/functions/api.php' );
