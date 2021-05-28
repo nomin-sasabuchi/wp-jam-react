@@ -1,0 +1,8 @@
+# env
+# WordPress
+/wp-content/*
+!/wp-content/themes
+/wp-content/themes/*
+/wp-config.php
+# {mytheme} にはテーマ名を入れる
+!/wp-content/themes/wp-api

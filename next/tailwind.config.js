@@ -4,15 +4,23 @@ const plugin = require('tailwindcss/plugin');
 console.log('Tailwind Running !');
 
 module.exports = {
-  purge: ['./pages/**/*.{js,ts,jsx,tsx}', './components/**/*.{js,ts,jsx,tsx}'],
+  purge: ['./src/**/*.{js,ts,jsx,tsx}'],
   mode: 'jit',
   darkMode: false, // or 'media' or 'class'
   //themeではあらゆる値を定義
   theme: {
     colors: {
       black: {
-        DEFAULT: '#000000',
-        light: '#2C2C2C',
+        DEFAULT: '#333333',
+      },
+      navy:{
+        DEFAULT: '#181731',
+      },
+      yellow:{
+        DEFAULT: '#ffa800',
+      },
+      white:{
+        DEFAULT: '#ffffff',
       },
       transparent: 'transparent',
     },
