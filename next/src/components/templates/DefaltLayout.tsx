@@ -1,6 +1,6 @@
 import Head from "next/head";
 import {Header} from "../organismus/layaouts/Header";
-import {Footer} from "../organismus/layaouts/Footer";
+import {Footer} from "@/components/organismus/layaouts/Footer";
 
 export const DefaltLayout = (props) => {
   const { children,title = "HP BY Next.js" } = props;

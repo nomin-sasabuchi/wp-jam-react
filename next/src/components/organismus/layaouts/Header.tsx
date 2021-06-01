@@ -16,13 +16,19 @@ export const Header = () => {
         <nav>
           <ul className="flex">
             <li>
-              <a href="#about">About</a>
+              <Link href="about">
+                <a>About</a>
+              </Link>
             </li>
             <li>
-              <a href="#works">Works</a>
+              <Link href="works">
+                  <a>Works</a>
+              </Link>
             </li>
             <li>
-              <a href="#skill">Skills</a>
+              <Link href="skills">
+                  <a>Skills</a>
+              </Link>
             </li>
           </ul>
         </nav>

@@ -1,5 +1,5 @@
 
-import {DefaltLayout} from "../templates/DefaltLayout";
+import {DefaltLayout} from "@/components/templates/DefaltLayout";
 
 export default function Home() {
   return (
