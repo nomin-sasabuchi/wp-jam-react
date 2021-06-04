@@ -1,6 +1,7 @@
 /*! destyle.css v2.0.2 | MIT License | https://github.com/nicolas-cusan/destyle.css */
 
 /* Reset box-model and set borders */
+
 /* ============================================ */
 
 *,
@@ -12,6 +13,7 @@
 }
 
 /* Document */
+
 /* ============================================ */
 
 /**
@@ -21,12 +23,19 @@
  */
 
 html {
-  line-height: 1.5; /* 1 */
-  -webkit-text-size-adjust: 100%; /* 2 */
-  -webkit-tap-highlight-color: transparent; /* 3*/
+  line-height: 1.5;
+
+  /* 1 */
+  -webkit-text-size-adjust: 100%;
+
+  /* 2 */
+  -webkit-tap-highlight-color: transparent;
+
+  /* 3 */
 }
 
 /* Sections */
+
 /* ============================================ */
 
 /**
@@ -46,6 +55,7 @@ main {
 }
 
 /* Vertical rhythm */
+
 /* ============================================ */
 
 p,
@@ -61,6 +71,7 @@ dl {
 }
 
 /* Headings */
+
 /* ============================================ */
 
 h1,
@@ -76,6 +87,7 @@ h6 {
 }
 
 /* Lists (enumeration) */
+
 /* ============================================ */
 
 ul,
@@ -86,6 +98,7 @@ ol {
 }
 
 /* Lists (definition) */
+
 /* ============================================ */
 
 dt {
@@ -97,6 +110,7 @@ dd {
 }
 
 /* Grouping content */
+
 /* ============================================ */
 
 /**
@@ -105,9 +119,15 @@ dd {
  */
 
 hr {
-  box-sizing: content-box; /* 1 */
-  height: 0; /* 1 */
-  overflow: visible; /* 2 */
+  box-sizing: content-box;
+
+  /* 1 */
+  height: 0;
+
+  /* 1 */
+  overflow: visible;
+
+  /* 2 */
   border-top-width: 1px;
   margin: 0;
   clear: both;
@@ -120,8 +140,12 @@ hr {
  */
 
 pre {
-  font-family: monospace, monospace; /* 1 */
-  font-size: inherit; /* 2 */
+  font-family: monospace, monospace;
+
+  /* 1 */
+  font-size: inherit;
+
+  /* 2 */
 }
 
 address {
@@ -129,6 +153,7 @@ address {
 }
 
 /* Text-level semantics */
+
 /* ============================================ */
 
 /**
@@ -147,8 +172,12 @@ a {
  */
 
 abbr[title] {
-  text-decoration: underline; /* 2 */
-  text-decoration: underline dotted; /* 2 */
+  text-decoration: underline;
+
+  /* 2 */
+  text-decoration: underline dotted;
+
+  /* 2 */
 }
 
 /**
@@ -168,8 +197,12 @@ strong {
 code,
 kbd,
 samp {
-  font-family: monospace, monospace; /* 1 */
-  font-size: inherit; /* 2 */
+  font-family: monospace, monospace;
+
+  /* 1 */
+  font-size: inherit;
+
+  /* 2 */
 }
 
 /**
@@ -202,6 +235,7 @@ sup {
 }
 
 /* Embedded content */
+
 /* ============================================ */
 
 /**
@@ -216,6 +250,7 @@ iframe {
 }
 
 /* Forms */
+
 /* ============================================ */
 
 /**
@@ -244,12 +279,12 @@ textarea {
  * Reset radio and checkbox appearance to preserve their look in iOS.
  */
 
-[type="checkbox"] {
+[type='checkbox'] {
   -webkit-appearance: checkbox;
   appearance: checkbox;
 }
 
-[type="radio"] {
+[type='radio'] {
   -webkit-appearance: radio;
   appearance: radio;
 }
@@ -281,18 +316,18 @@ select {
  */
 
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   cursor: pointer;
   -webkit-appearance: none;
   appearance: none;
 }
 
 button[disabled],
-[type="button"][disabled],
-[type="reset"][disabled],
-[type="submit"][disabled] {
+[type='button'][disabled],
+[type='reset'][disabled],
+[type='submit'][disabled] {
   cursor: default;
 }
 
@@ -301,9 +336,9 @@ button[disabled],
  */
 
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -313,9 +348,9 @@ button::-moz-focus-inner,
  */
 
 button:-moz-focusring,
-[type="button"]:-moz-focusring,
-[type="reset"]:-moz-focusring,
-[type="submit"]:-moz-focusring {
+[type='button']:-moz-focusring,
+[type='reset']:-moz-focusring,
+[type='submit']:-moz-focusring {
   outline: 1px dotted ButtonText;
 }
 
@@ -353,11 +388,21 @@ fieldset {
  */
 
 legend {
-  color: inherit; /* 2 */
-  display: table; /* 1 */
-  max-width: 100%; /* 1 */
-  padding: 0; /* 3 */
-  white-space: normal; /* 1 */
+  color: inherit;
+
+  /* 2 */
+  display: table;
+
+  /* 1 */
+  max-width: 100%;
+
+  /* 1 */
+  padding: 0;
+
+  /* 3 */
+  white-space: normal;
+
+  /* 1 */
 }
 
 /**
@@ -380,8 +425,8 @@ textarea {
  * Correct the cursor style of increment and decrement buttons in Chrome.
  */
 
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
@@ -389,15 +434,17 @@ textarea {
  * 1. Correct the outline style in Safari.
  */
 
-[type="search"] {
-  outline-offset: -2px; /* 1 */
+[type='search'] {
+  outline-offset: -2px;
+
+  /* 1 */
 }
 
 /**
  * Remove the inner padding in Chrome and Safari on macOS.
  */
 
-[type="search"]::-webkit-search-decoration {
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -407,8 +454,12 @@ textarea {
  */
 
 ::-webkit-file-upload-button {
-  -webkit-appearance: button; /* 1 */
-  font: inherit; /* 2 */
+  -webkit-appearance: button;
+
+  /* 1 */
+  font: inherit;
+
+  /* 2 */
 }
 
 /**
@@ -420,6 +471,7 @@ label[for] {
 }
 
 /* Interactive */
+
 /* ============================================ */
 
 /*
@@ -447,6 +499,7 @@ summary {
 }
 
 /* Table */
+
 /* ============================================ */
 
 table {
@@ -470,6 +523,7 @@ th {
 }
 
 /* Misc */
+
 /* ============================================ */
 
 /**

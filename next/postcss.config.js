@@ -1,12 +1,16 @@
 module.exports = {
   plugins: {
-    tailwindcss: {config: './tailwind.config.js'},
     autoprefixer: {},
-    "postcss-import": {
-      plugins: [
-        // このタイミングでlinterを実行すると、エラー位置が結合前のファイルで示される
-        require("stylelint")(),
-      ],
+    'postcss-import':{},
+    'postcss-preset-env': {
+      stage: 2,
+      features: {
+        autoprefixer: true,
+      },
     },
+    'postcss-nested': {},
+    'postcss-mixins': {},
+    'postcss-simple-vars': {},
+    tailwindcss: { config: './tailwind.config.js' },
   },
-}
+};

@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from 'next/link';
 import Image from 'next/image';
 
 export const Header = () => {
@@ -8,8 +8,14 @@ export const Header = () => {
         <h1 className="px-[6rem] py-[4rem]">
           <Link href="/">
             <a className="w-[90px] block">
-              <Image src="/logo.svg" alt="joint core" width={90} height={91}/>
-              <Image className="mt-[1rem]" src="/logo-text.svg" alt="joint core" width={89} height={18}/>
+              <Image src="/logo.svg" alt="joint core" width={90} height={91} />
+              <Image
+                className="mt-[1rem]"
+                src="/logo-text.svg"
+                alt="joint core"
+                width={89}
+                height={18}
+              />
             </a>
           </Link>
         </h1>
@@ -22,12 +28,12 @@ export const Header = () => {
             </li>
             <li>
               <Link href="works">
-                  <a>Works</a>
+                <a>Works</a>
               </Link>
             </li>
             <li>
               <Link href="skills">
-                  <a>Skills</a>
+                <a>Skills</a>
               </Link>
             </li>
           </ul>
@@ -35,4 +41,4 @@ export const Header = () => {
       </header>
     </>
   );
-}
+};

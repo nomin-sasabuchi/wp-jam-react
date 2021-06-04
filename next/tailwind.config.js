@@ -1,4 +1,3 @@
-
 const plugin = require('tailwindcss/plugin');
 
 console.log('Tailwind Running !');
@@ -13,13 +12,13 @@ module.exports = {
       black: {
         DEFAULT: '#333333',
       },
-      navy:{
+      navy: {
         DEFAULT: '#181731',
       },
-      yellow:{
+      yellow: {
         DEFAULT: '#ffa800',
       },
-      white:{
+      white: {
         DEFAULT: '#ffffff',
       },
       transparent: 'transparent',
@@ -53,4 +52,4 @@ module.exports = {
       });
     }),
   ],
-}
+};

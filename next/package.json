@@ -5,7 +5,24 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "check-types": "tsc --noEmit",
+    "lint:script": "eslint src/**/*.{ts,tsx}",
+    "lint:style": "stylelint 'styles/**/*.css'",
+    "lint:script:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "lint:style:fix": "stylelint 'styles/**/*.css' --fix",
+    "format": "prettier --write .",
+    "test-all": "npx yarn-run-all check-types format lint:script:fix lint:style:fix"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx,ts,tsx}": [
+      "test-all"
+    ]
   },
   "dependencies": {
     "autoprefixer": "^10.2.5",
@@ -20,9 +37,18 @@
     "@types/node": "^15.6.1",
     "@types/react": "^17.0.6",
     "@types/react-dom": "^17.0.5",
+    "@typescript-eslint/eslint-plugin": "^4.26.0",
+    "@typescript-eslint/parser": "^4.26.0",
     "eslint": "^7.27.0",
     "eslint-config-prettier": "^8.3.0",
-    "eslint-plugin-prettier": "^3.4.0",
+    "eslint-plugin-react": "^7.24.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
+    "postcss-math": "^0.0.10",
+    "postcss-mixins": "^8.1.0",
+    "postcss-nested": "^5.0.5",
+    "postcss-preset-env": "^6.7.0",
+    "postcss-simple-vars": "^6.0.3",
     "prettier": "^2.3.0",
     "stylelint": "^13.13.1",
     "stylelint-config-prettier": "^8.0.2",
