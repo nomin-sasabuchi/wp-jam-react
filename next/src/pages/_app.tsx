@@ -1,7 +1,8 @@
 import '/styles/globals.css';
 import 'tailwindcss/tailwind.css';
+import { FC } from 'react';
 
-function MyApp({ Component, pageProps }) {
+const MyApp: FC<any> = ({ Component, pageProps }) => {
   return <Component {...pageProps} />;
 }
 

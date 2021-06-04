@@ -1,6 +1,7 @@
 import { DefaltLayout } from '@/components/templates/DefaltLayout';
+import { FC } from 'react';
 
-export default function Contact() {
+export const Contact: FC<string> = () => {
   return (
     <DefaltLayout title="Contact">
       <h2>Contact</h2>

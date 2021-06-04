@@ -20,8 +20,11 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx,ts,tsx}": [
-      "test-all"
+    "src/**/*.{js,jsx,ts,tsx}": [
+      "eslint"
+    ],
+    "styles/**/*.css": [
+      "stylelint"
     ]
   },
   "dependencies": {
