@@ -1,0 +1,18 @@
+<svg id="level-icon3.svg" xmlns="http://www.w3.org/2000/svg" width="40" height="49" viewBox="0 0 40 49">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #333;
+        fill-rule: evenodd;
+      }
+
+      .cls-2 {
+        fill: #ff0018;
+      }
+    </style>
+  </defs>
+  <path id="長方形_9_のコピー_4" data-name="長方形 9 のコピー 4" class="cls-1" d="M38,49H0V5H10V0H30V5H40V49H38ZM28,2H12V5H28V2ZM38,7H2V47H38V7Z"/>
+  <rect id="長方形_9_のコピー_14" data-name="長方形 9 のコピー 14" class="cls-2" x="5" y="34" width="30" height="10"/>
+  <rect id="長方形_9_のコピー_15" data-name="長方形 9 のコピー 15" class="cls-2" x="5" y="22" width="30" height="10"/>
+  <rect id="長方形_9_のコピー_16" data-name="長方形 9 のコピー 16" class="cls-2" x="5" y="10" width="30" height="10"/>
+</svg>

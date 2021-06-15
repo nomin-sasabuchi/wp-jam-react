@@ -17,7 +17,7 @@ export const Footer = () => {
             ExtraClass="bg-white | w-[50px] h-[50px]"
             href="https://github.com/sei12356"
           >
-            <Image src="/icon-github.png" alt="github" width="34" height="32" />
+            <Image src="/common/github-icon-bk.png" alt="github" width="34" height="32" />
           </CircleButton>
         </div>
         <p className="mt-[3rem] | text-center">

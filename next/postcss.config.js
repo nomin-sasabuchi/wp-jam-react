@@ -11,6 +11,7 @@ module.exports = {
     'postcss-nested': {},
     'postcss-mixins': {},
     'postcss-simple-vars': {},
+    'postcss-math': {},
     tailwindcss: { config: './tailwind.config.js' },
   },
 };

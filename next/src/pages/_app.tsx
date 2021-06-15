@@ -1,9 +1,10 @@
 import '/styles/globals.css';
 import 'tailwindcss/tailwind.css';
-import { FC } from 'react';
+import { AppProps } from 'next/app'
 
-const MyApp: FC<any> = ({ Component, pageProps }) => {
-  return <Component {...pageProps} />;
+export default function App({ Component, pageProps }: AppProps): React.ReactElement {
+  return <Component {...pageProps} />
 }
+//FC 型つけ
 
-export default MyApp;
+//https://interrupt.co.jp/blog/entry/2021/03/05/133925

@@ -1,0 +1,64 @@
+/* Todo Checked Handle */
+
+/* ? Use case: 
+checked:next:block , 
+checked:next:before:block ,
+checked:next:before:opacity , 
+*/
+input[type='checkbox'],
+input[type='radio'] {
+  &.checked\:next {
+    &\:hidden:checked + * {
+      display: none;
+    }
+
+    &\:block:checked + * {
+      display: block;
+    }
+
+    &\::before {
+      &\:opacity-0 + *::before {
+        opacity: 0;
+      }
+
+      &\:opacity-1 + *::before {
+        opacity: 1;
+      }
+
+      &\:block:checked + *::before {
+        display: block;
+      }
+
+      &\:hidden:checked + *::before {
+        display: none;
+      }
+    }
+
+    &\:opacity-1:checked + * {
+      opacity: 1;
+    }
+
+    &\:opacity-0:checked + * {
+      opacity: 0;
+    }
+
+    &\:visible:checked + * {
+      visibility: visible;
+    }
+  }
+}
+
+/* Before After Content */
+[data-before],
+.before {
+  &::before {
+    content: attr(data-before);
+  }
+}
+
+[data-after],
+.after {
+  &::after {
+    content: attr(data-after);
+  }
+}

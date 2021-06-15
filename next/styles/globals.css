@@ -1,62 +1,13 @@
 @import 'tools/_.css';
 @import 'generic/_.css';
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-@layer utilities {
-  @variants responsive,
-  before,
-  after {
-    .flex-center {
-      @apply flex items-center justify-center;
-    }
-
-    .absolute-center {
-      left: 50%;
-      position: absolute;
-      top: 50%;
-      transform: translate(-50%, -50%);
-    }
-
-    .transform-center {
-      transform: translate(-50%, -50%);
-    }
-
-    .overlay {
-      @apply absolute left-0 right-0 z-10 w-full h-full;
-    }
-
-    .container {
-      @apply mx-auto px-15;
-
-      @media screen and (min-width: 769px) {
-        max-width: 98rem;
-        padding-left: 0;
-        padding-right: 0;
-      }
-    }
-  }
-
-  .only-pc {
-    @media screen and (max-width: 768px) {
-      display: none !important;
-    }
-  }
-
-  .only-sp {
-    @media screen and (min-width: 769px) {
-      display: none !important;
-    }
-  }
-}
+@import 'tailwind/_.css';
 
 html {
   font-size: resolve((10/375 * 100) * 1vw);
   scroll-behavior: smooth;
 
   @mixin media-min 769px {
-    font-size: 10px;
+    font-size: resolve((10/1366 * 100) * 1vw);
   }
 
   @mixin media-min 1366px {

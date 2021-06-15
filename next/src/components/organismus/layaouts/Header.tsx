@@ -1,17 +1,23 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { IconMail } from '@/components/atoms/svg/IconMail';
 
 export const Header = () => {
+  const HeaderLink = [
+    { link: "about", text: "About" },
+    { link: "works", text: "Works" },
+    { link: "skills", text: "Skills" }
+  ]
   return (
     <>
-      <header className="flex | w-screen | mb-auto">
-        <h1 className="px-[6rem] py-[4rem]">
+      <header className="flex justify-end | w-full | mb-auto | relative">
+        <h1 className="px-[6rem] py-[4rem] absolute top-0 left-0 z-[1] bg-white">
           <Link href="/">
-            <a className="w-[90px] block">
-              <Image src="/logo.svg" alt="joint core" width={90} height={91} />
+            <a className="w-[9rem] block">
+              <Image src="/common/logo.svg" alt="joint core" width={90} height={91} />
               <Image
                 className="mt-[1rem]"
-                src="/logo-text.svg"
+                src="/common/logo-text.svg"
                 alt="joint core"
                 width={89}
                 height={18}
@@ -20,20 +26,22 @@ export const Header = () => {
           </Link>
         </h1>
         <nav>
-          <ul className="flex">
-            <li>
-              <Link href="about">
-                <a>About</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="works">
-                <a>Works</a>
-              </Link>
-            </li>
-            <li>
-              <Link href="skills">
-                <a>Skills</a>
+          <ul className="flex items-center | h-[10rem]">
+            {HeaderLink.map(({ link, text }) =>
+              <li className="mr-[7rem]" key={text}>
+                <Link href={`/${link}`}>
+                  <a>{text}</a>
+                </Link>
+              </li>
+            )}
+            <li className="w-[10rem] h-[10rem]">
+              <Link href="/contact">
+                <a className="flex justify-center items-center | w-full h-full | bg-yellow">
+                  <div>
+                    <IconMail ExtraClass="text-white fill-current | mx-auto | w-[3rem]" />
+                    <span className="text-white | block | mt-[0.5rem]">Contact</span>
+                  </div>
+                </a>
               </Link>
             </li>
           </ul>

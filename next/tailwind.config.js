@@ -12,6 +12,9 @@ module.exports = {
       black: {
         DEFAULT: '#333333',
       },
+      gray: {
+        DEFAULT: '#eeeeee',
+      },
       navy: {
         DEFAULT: '#181731',
       },
@@ -52,4 +55,7 @@ module.exports = {
       });
     }),
   ],
+  corePlugins: {
+    container: false,
+  },
 };
