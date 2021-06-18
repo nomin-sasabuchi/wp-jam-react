@@ -9,7 +9,7 @@ services:
     image: mysql:5.6
     # マウントする箇所
     volumes:
-      - db_data_imd:/var/lib/mysql
+      - db_data:/var/lib/mysql
     #起動失敗したときの再起動設定
     restart: always
     # .env で設定した db 接続情報
@@ -39,11 +39,9 @@ services:
     #WordPressは、dbよりも後に起動するよう、起動順序が調整されます。
     depends_on:
       - db
-    # image: wordpress_imd
     build: 
       context: .
       dockerfile: Dockerfile
-    #
     ports:
       - "8080:80"
     #起動失敗したときの再起動設定
@@ -61,7 +59,7 @@ services:
 
 #  サービスが利用するボリュームを定義します
 volumes:
-    db_data_imd:
+  db_data:
 
 # サービス(つまりコンテナ)が参加するネットワーク (こちらは省略可)
 # networks: 

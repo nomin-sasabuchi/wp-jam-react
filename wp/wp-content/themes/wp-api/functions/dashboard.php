@@ -26,9 +26,8 @@ function custom_menu_order($menu_ord) {
 		'index.php', // ダッシュボード
 		'separator1', // 最初の区切り線
 		'edit.php', // 投稿
-		'edit.php?post_type=news',//お知らせ
-		'edit.php?post_type=info',//最新情報
-		'edit.php?post_type=brand',//ブランド
+		'edit.php?post_type=works',//制作実績
+    'edit.php?post_type=skills',//スキル
 		'separator2', // 二つ目の区切り線
 		'upload.php', // メディア
 		'themes.php', // 外観

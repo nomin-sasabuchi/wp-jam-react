@@ -1,8 +1,11 @@
 import { DefaltLayout } from '@/components/templates/DefaltLayout';
 import Image from 'next/image';
 import { Section } from '@/components/molecules/outer/Section';
+import dayjs from 'dayjs';
+import { getPostsWorks } from '../../lib/postsWorks'
+import { GetStaticProps } from 'next'
 
-const Home: React.FC = () => {
+const Home: React.FC = ({ posts }) => {
   return (
     <DefaltLayout title="home">
       <div className="relative | flex | h-[calc(100vh-10rem)] | before before:absolute before:w-full before:bottom-0 before:left-0 before:h-[50vh] before:bg-navy before:block">
@@ -34,34 +37,41 @@ const Home: React.FC = () => {
       </Section>
       <Section text="制作実績" imgPath="/top/ttl-work.svg" bgColor="bg-navy" textColor="text-white">
         <div className="mt-[6rem]">
-          <ul className="grid grid-cols-2 gap-x-[4rem]">
-            <li className="relative">
-              <div className="relative h-[28.9rem]">
-                <Image src="/top/works-1.jpg" layout={"fill"} />
-              </div>
-              <div className="text-white mt-[1.5rem]">
-                <dl className="flex space-x-[1rem]">
-                  <dt>制作期間</dt>
-                  <dd>2020.06.25~2020.07.03</dd>
-                </dl>
-                <p className="text-[1.8rem] mt-[0.5rem] font-bold">コーポレートサイト</p>
-              </div>
-            </li>
+          <ul className="grid grid-cols-2 gap-x-[4rem] gap-y-[4rem]">
+            {posts && Array.from(Array(4).keys()).map((_, i) => {
+              const { id, works_meta, title } = posts[i];
+              return (
+                <li className="relative" key={id}>
+                  <div className="relative h-[28.9rem]">
+                    <img src={posts[i].thumbnail.url} alt="" />
+                  </div>
+                  <div className="text-white mt-[1.5rem]">
+                    <dl className="flex space-x-[1rem] text-yellow">
+                      <dt>作成期間</dt>
+                      <dd>
+                        {`${dayjs(works_meta.startData).format('YYYY.MM.DD')} ~ ${dayjs(works_meta.endData).format('YYYY.MM.DD')}`}
+                      </dd>
+                    </dl>
+                    <p className="text-[1.8rem] mt-[0.5rem] font-bold">{title.rendered}</p>
+                  </div>
+                </li>
+              )
+            })}
           </ul>
         </div>
       </Section >
+      <Section text="スキル" imgPath="/top/ttl-skills.svg"></Section>
     </DefaltLayout >
   );
 }
 
 export default Home;
 
-export const getStaticProps = async () => {
-  const key = {
-    headers: { 'X-API-KEY': process.env.API_KEY },
-  };
-  const data = await fetch('', key)
-    .then(res => res.json())
-    .catch(() => null);
-  console.log(data);
-};
+export const getStaticProps: GetStaticProps = async () => {
+  const posts = await getPostsWorks();
+  return {
+    props: {
+      posts
+    },
+  }
+}
