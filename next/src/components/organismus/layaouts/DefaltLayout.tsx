@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Header } from '../organismus/layaouts/Header';
+import { Header } from '@/components/organismus/layaouts/Header';
 import { Footer } from '@/components/organismus/layaouts/Footer';
 import { FC } from 'react';
 

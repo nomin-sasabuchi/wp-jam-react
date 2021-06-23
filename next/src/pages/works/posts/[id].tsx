@@ -1,4 +1,4 @@
-import { DefaltLayout } from '@/components/templates/DefaltLayout';
+import { DefaltLayout } from '@/components/organismus/layaouts/DefaltLayout';
 import { getPostsWorksIds, getPostData } from '@/lib/postsWorks';
 
 const Post = ({ post }) => {

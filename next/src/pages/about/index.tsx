@@ -1,4 +1,4 @@
-import { DefaltLayout } from '@/components/templates/DefaltLayout';
+import { DefaltLayout } from '@/components/organismus/layaouts/DefaltLayout';
 import { FC } from 'react';
 
 
