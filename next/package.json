@@ -7,9 +7,9 @@
     "build": "next build",
     "start": "next start",
     "check-types": "tsc --noEmit",
-    "lint:script": "eslint src/**/*.{ts,tsx}",
+    "lint:script": "eslint 'src/**/*.{ts,tsx}'",
     "lint:style": "stylelint 'styles/**/*.css'",
-    "lint:script:fix": "eslint src/**/*.{ts,tsx} --fix",
+    "lint:script:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
     "lint:style:fix": "stylelint 'styles/**/*.css' --fix",
     "format": "prettier --write .",
     "test-all": "npx yarn-run-all check-types format lint:script:fix lint:style:fix"
@@ -30,9 +30,6 @@
   "dependencies": {
     "autoprefixer": "^10.2.5",
     "axios": "^0.21.1",
-    "dayjs": "^1.10.5",
-    "dotenv": "^10.0.0",
-    "fs": "^0.0.1-security",
     "next": "10.2.3",
     "postcss": "^8.3.0",
     "postcss-import": "^14.0.2",

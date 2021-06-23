@@ -45,6 +45,25 @@ function create_post_type() {
 	}
 }
 
+add_action( 'init', 'create_post_type_cat' );
+function create_post_type_cat() {
+	register_taxonomy(
+			'works_cat',
+		//カスタムタクソノミー名
+			'works',
+		//新規カスタムタクソノミーを反映させる投稿タイプの定義名
+			array(
+				'hierarchical' => true,
+				'label' => 'カテゴリー分類',
+				'show_ui' => true,
+				'query_var' => true,
+				'rewrite' => true,
+				'singular_label' => 'カテゴリー分類',
+				'exclude_from_search' => true,
+			)
+	);
+}
+
 /*-------------------------------------------------------
 
 Rest-API アイキャッチ画像追加
@@ -119,4 +138,55 @@ function slug_register_fruits() {
       'schema'          => null,
     )
   );
+}
+
+/*-------------------------------------------------------
+
+独自エンドポイント登録
+
+----------------------------------------------------------*/ 
+function add_custom_endpoint()
+{
+	//
+	register_rest_route(
+	//ネームスペース
+	'custom/v0',
+	//ベースURL
+	'/skills',
+	//オプション
+		array(
+			'methods'  =>  WP_REST_Server::READABLE,
+			'callback' => 'skills_data'
+		)
+  );
+  register_rest_route(
+	//ネームスペース
+	'custom/v0',
+	//ベースURL
+	'/works',
+	//オプション
+		array(
+			'methods'  =>  WP_REST_Server::READABLE,
+			'callback' => 'works_data'
+		)
+	);
+}
+add_action('rest_api_init', 'add_custom_endpoint');
+
+function rest_response($file_name, $param = null) {
+	$api_file = locate_template("api/${file_name}.php");
+	$res      = !empty($api_file) ? include_once $api_file : [1];
+	$response = new WP_REST_Response($res);
+	$response->set_status(200);
+	return $response;
+}
+
+function skills_data($param)
+{
+  return rest_response('skills-data', $param);
+}
+
+function works_data($param)
+{
+  return rest_response('works-data', $param);
 }

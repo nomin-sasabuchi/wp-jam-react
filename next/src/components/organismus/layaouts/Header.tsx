@@ -1,16 +1,25 @@
 import Link from 'next/link';
 import Image from 'next/image';
 import { IconMail } from '@/components/atoms/svg/IconMail';
+import React from 'react'
 
 export const Header = () => {
   const HeaderLink = [
     { link: "about", text: "About" },
     { link: "works", text: "Works" },
-    { link: "skills", text: "Skills" }
+    { link: "skills", text: "Skills" },
+    { link: "blog", text: "Blog" }
   ]
+  const headerRef = React.useRef(null);
+  React.useEffect(() => {
+    console.log(headerRef.current.getClientRects());
+    // const target = document.querySelector('[data-header]');
+    // console.log(target.getClientRects());
+  }, []);
+
   return (
     <>
-      <header className="flex justify-end | w-full | mb-auto | relative">
+      <header className="flex justify-end | w-full | mb-auto | relative" data-header ref={headerRef}>
         <h1 className="px-[6rem] py-[4rem] absolute top-0 left-0 z-[1] bg-white">
           <Link href="/">
             <a className="w-[9rem] block">

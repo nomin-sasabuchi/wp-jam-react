@@ -1,5 +1,5 @@
 import { TitleH2 } from '@/components/atoms/title/TitleH2';
-import { PropsTitleH2 } from "types/TitleH2";
+import { PropsTitleH2 } from "@/types/TitleH2";
 type PropsSection = PropsTitleH2 & {
   bgColor?: string;
 }

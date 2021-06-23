@@ -26,7 +26,7 @@ export const Footer = () => {
         <a
           className="mt-[1.5rem] | text-center | block"
           target="_blank"
-          href="https://icons8.jp/"
+          href="https://icons8.jp/" rel="noreferrer"
         >
           icons8ライセンス
         </a>

@@ -1,10 +1,11 @@
 import { DefaltLayout } from '@/components/templates/DefaltLayout';
-import { getPostsWorksIds, getPostData } from '../../../../lib/postsWorks';
+import { getPostsWorksIds, getPostData } from '@/lib/postsWorks';
 
 const Post = ({ post }) => {
+  console.log(post);
   return (
-    <DefaltLayout title={post.title.rendered}>
-      <p>{post.title.rendered}</p>
+    <DefaltLayout>
+      <p>テスト</p>
     </DefaltLayout>
   )
 }
@@ -22,6 +23,6 @@ export const getStaticPaths = async () => {
 export const getStaticProps = async ({ params }) => {
   const post = await getPostData(params.id);
   return {
-    post
+    props: { post }
   }
 }

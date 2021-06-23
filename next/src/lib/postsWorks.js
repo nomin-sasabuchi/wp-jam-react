@@ -1,5 +1,5 @@
 import axios from 'axios'
-const apiUrl = 'http://localhost:8080/wp-json/wp/v2/works';
+const apiUrl = `${process.env.NEXT_PUBLIC_API_BASE_URL}/works`;
 
 export async function getPostsWorks(){
   const res = await axios.get(apiUrl);
@@ -7,6 +7,8 @@ export async function getPostsWorks(){
   return postsWorks;
 }
 
+
+//動的↓
 export async function getPostsWorksIds(){
   const res = await axios.get(apiUrl);
   const postsWorks = await res.data;
@@ -20,8 +22,8 @@ export async function getPostsWorksIds(){
 }
 
 export async function getPostData(id){
-  const res = await axios.get(new URL(`${apiUrl}/${id}/`));
+  const post = await axios.get(`${apiUrl}/${id}/`);
   return { 
-    post
+    post:post.data
   }
 }

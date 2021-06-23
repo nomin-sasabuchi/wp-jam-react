@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { PropsTitleH2 } from "types/TitleH2";
+import { PropsTitleH2 } from "@/types/TitleH2";
 
 export const TitleH2: React.VFC<Readonly<PropsTitleH2>> = ({ text, imgPath, textColor }) => {
   return (
