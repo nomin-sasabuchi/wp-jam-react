@@ -42,18 +42,6 @@ module.exports = {
   },
   //CSSの代わりにJavaScriptを使用して、新しいスタイルを挿入できる
   plugins: [
-    plugin(function ({ addVariant, e }) {
-      addVariant('after', ({ modifySelectors, separator }) => {
-        modifySelectors(({ className }) => {
-          return `.${e(`after${separator}${className}`)}::after`;
-        });
-      });
-      addVariant('before', ({ modifySelectors, separator }) => {
-        modifySelectors(({ className }) => {
-          return `.${e(`before${separator}${className}`)}::before`;
-        });
-      });
-    }),
   ],
   corePlugins: {
     container: false,

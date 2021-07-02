@@ -35,7 +35,7 @@ services:
       PMA_USER: "${PMA_USER}"
       PMA_PASSWORD: "${PMA_PASSWORD}"
 
-  wordpress:
+  wp:
     #WordPressは、dbよりも後に起動するよう、起動順序が調整されます。
     depends_on:
       - db
@@ -56,6 +56,14 @@ services:
       WORDPRESS_DB_USER: "${WORDPRESS_DB_USER}"
       WORDPRESS_DB_PASSWORD: "${WORDPRESS_DB_PASSWORD}"
       WORDPRESS_DB_NAME: "${WORDPRESS_DB_NAME}"
+  # MailHog
+  mailhog:
+    image: mailhog/mailhog
+    restart: always
+    container_name: wp-mailhog
+    ports:
+      - "8025:8025"
+      - "1025:1025"
 
 #  サービスが利用するボリュームを定義します
 volumes:

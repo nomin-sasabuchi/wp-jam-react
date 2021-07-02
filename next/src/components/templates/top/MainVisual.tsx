@@ -1,7 +1,7 @@
 import React from 'react'
 import Image from 'next/image';
 
-export const Mv = () => {
+export const MainVisual = () => {
   return (
     <div className="relative | flex | h-[calc(100vh-10rem)] | before before:absolute before:w-full before:bottom-0 before:left-0 before:h-[50vh] before:bg-navy before:block">
       {/* left-item */}

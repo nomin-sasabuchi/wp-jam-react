@@ -10,16 +10,9 @@ export const Header = () => {
     { link: "skills", text: "Skills" },
     { link: "blog", text: "Blog" }
   ]
-  const headerRef = React.useRef(null);
-  React.useEffect(() => {
-    console.log(headerRef.current.getClientRects());
-    // const target = document.querySelector('[data-header]');
-    // console.log(target.getClientRects());
-  }, []);
-
   return (
     <>
-      <header className="flex justify-end | w-full | mb-auto | relative" data-header ref={headerRef}>
+      <header className="flex justify-end | w-full | mb-auto | relative">
         <h1 className="px-[6rem] py-[4rem] absolute top-0 left-0 z-[1] bg-white">
           <Link href="/">
             <a className="w-[9rem] block">
