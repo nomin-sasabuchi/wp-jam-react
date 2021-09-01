@@ -25,7 +25,7 @@ services:
     volumes:
       - /sessions
     ports:
-      - "80:80"
+      - "81:80"
     # 常にコンテナを自動起動させる
     restart: always
     # .env で設定した phpmyadmin 情報

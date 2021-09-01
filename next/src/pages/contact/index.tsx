@@ -1,12 +1,14 @@
-import { DefaltLayout } from '@/components/organismus/layaouts/DefaltLayout';
+
 import { FC } from 'react';
+import { DefaltLayout } from '@/components/organismus/layaouts/DefaltLayout';
+import { Index } from '@/components/templates/contact/Index'
 
 const Contact: FC = () => {
   return (
     <DefaltLayout title="Contact">
-      <h2>Contact</h2>
+      <Index />
     </DefaltLayout>
-  );
+  )
 }
 
-export default Contact;
+export default Contact

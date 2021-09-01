@@ -5,14 +5,14 @@ import React from 'react'
 
 export const Header = () => {
   const HeaderLink = [
-    { link: "about", text: "About" },
+    // { link: "about", text: "About" },
     { link: "works", text: "Works" },
-    { link: "skills", text: "Skills" },
-    { link: "blog", text: "Blog" }
+    // { link: "skills", text: "Skills" },
+    // { link: "blog", text: "Blog" }
   ]
   return (
     <>
-      <header className="flex justify-end | w-full | mb-auto | relative">
+      <header className="flex justify-end | w-full | relative">
         <h1 className="px-[6rem] py-[4rem] absolute top-0 left-0 z-[1] bg-white">
           <Link href="/">
             <a className="w-[9rem] block">

@@ -24,6 +24,9 @@ module.exports = {
       white: {
         DEFAULT: '#ffffff',
       },
+      red:{
+        DEFAULT: '#ff7676',
+      },
       transparent: 'transparent',
     },
     screens: {

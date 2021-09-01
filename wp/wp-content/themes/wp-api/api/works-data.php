@@ -30,6 +30,10 @@
         'Use' => post_custom('Use'),
         'link' => post_custom('link'),
         'Github' => post_custom('Github'),
+        'category' => get_the_term_list($post->ID,'works_cat'),
+        'category_slug' => $cat_slug,
+        //タグ
+        'tags' =>  get_the_terms($post->ID, 'works_tag'),
     ];
 
     endwhile;
