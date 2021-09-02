@@ -39,7 +39,10 @@ function create_post_type() {
 				'hierarchical' => true,
 				'show_ui' => true,
 				'show_in_rest' => true,
-    		'rest_base' => $title_key,
+				'rest_base' => $title_key,
+				'show_in_graphql' => true,
+				'graphql_plural_name' => $title_key,
+				'graphql_single_name' => $title_key.'item'
 			)
 		);
 	}
@@ -162,12 +165,13 @@ function slug_register_fruits() {
 					'FlameWork',
 					'Use',
 					'link',
-					'Github'
+					'Github',
+					'tests',
         );
         $meta = array();
         foreach ( $meta_fields as $field ) {
           // バリデーションを一切してないので注意
-          $meta[ $field ] = get_post_meta( $object['id'], $field, false ); // 第3引数はfalse、Smart Custom Fieldの繰り替えし機能を使うため
+          $meta[ $field ] = SCF::get($field); // 第3引数はfalse、Smart Custom Fieldの繰り替えし機能を使うため
         }
         return $meta;
       },
@@ -182,54 +186,5 @@ function slug_register_fruits() {
 独自エンドポイント登録
 
 ----------------------------------------------------------*/ 
-function add_custom_endpoint()
-{
-	//
-	register_rest_route(
-	//ネームスペース
-	'custom/v0',
-	//ベースURL
-	'/skills',
-	//オプション
-		array(
-			'methods'  =>  WP_REST_Server::READABLE,
-			'callback' => 'skills_data'
-		)
-  );
-  register_rest_route(
-	//ネームスペース
-	'custom/v0',
-	//ベースURL
-	'/works',
-	//オプション
-		array(
-			'methods'  =>  WP_REST_Server::READABLE,
-			'permission_callback' => '__return_true',
-			'callback' => 'works_data'
-		)
-	);
-}
-add_action('rest_api_init', 'add_custom_endpoint');
-
-//APIの権限をチェックする関数
-function rest_permission(){
-  return current_user_can('publish_posts');
-}
-
-function rest_response($file_name, $param = null) {
-	$api_file = locate_template("api/${file_name}.php");
-	$res      = !empty($api_file) ? include_once $api_file : [1];
-	$response = new WP_REST_Response($res);
-	$response->set_status(200);
-	return $response;
-}
-
-function skills_data($param)
-{
-  return rest_response('skills-data', $param);
-}
-
-function works_data($param)
-{
-  return rest_response('works-data', $param);
-}
+include( get_template_directory().'/api/works-data.php' );
+include( get_template_directory().'/api/skills-data.php' );

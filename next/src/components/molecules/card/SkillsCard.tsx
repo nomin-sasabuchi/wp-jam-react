@@ -5,6 +5,7 @@ export const SkillsCard = ({ title, icon, level }) => {
   return (
     <div className="flex px-[4rem] py-[2rem]">
       <div className="flex items-center | w-[80%]">
+
         <div className="w-[35%] flex-center">
           <img className="max-h-[5rem]" src={icon} alt={title} />
         </div>

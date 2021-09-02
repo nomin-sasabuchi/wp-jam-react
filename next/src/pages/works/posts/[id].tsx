@@ -2,7 +2,6 @@ import { DefaltLayout } from '@/components/organismus/layaouts/DefaltLayout';
 import { getPostsWorksIds, getPostData } from '@/lib/postsWorks';
 
 const Post = ({ post }) => {
-  // console.log(post);
   return (
     <DefaltLayout>
       <p>テスト</p>

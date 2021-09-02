@@ -9,17 +9,12 @@
 *
 */
 
-//Dashboard 
+// //Dashboard 
 include( get_template_directory().'/functions/dashboard.php' );
 
-//カスタム投稿
+// //カスタム投稿
 include( get_template_directory().'/functions/custom-post.php' );
 
-//その他オプション
+// //その他オプション
 include( get_template_directory().'/functions/option.php' );
 
-//WordPressリセット
-// include( get_template_directory().'/functions/remove.php' );
-
-//api設定
-// include( get_template_directory().'/functions/api.php' );

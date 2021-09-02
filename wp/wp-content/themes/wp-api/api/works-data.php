@@ -1,44 +1,64 @@
-
 <?php
-    $post_data = [];
+function get_work_fields($work) {
+  $work_custom = get_post_custom($work->ID);
+  // var_dump($work);
+  $work_fields = [
+    'id' => $work->ID,
+    //公開日
+    'time'  => date('Y.m.d', strtotime($works->post_date)),
+    'title' => $work->post_title,
+    'thumbnail' => get_the_post_thumbnail_url( $work->ID,"large"),
+    'startData' => $work_custom['startData'],
+    'endData' => $work_custom['endData'],
+    'language' => $work_custom['language'],
+    'FlameWork' => $work_custom['FlameWork'],
+    'Use' => $work_custom['Use'],
+    'link' => $work_custom['link'],
+    'Github' => $work_custom['Github'],
+    'category' => get_the_term_list($work->ID,'works_cat'),
+    // 'category_slug' => $cat_slug,
+    //タグ
+    'tags' =>  get_terms($work->ID, 'works_tag'),
+  ];
 
-    $post_args = [
-        'post_type'      => 'works',
-        'posts_per_page' => -1,
-        'post_status'    => 'publish',
-        'orderby'        => 'date',
-        'order'          => 'DESC'
-    ];
+  return $work_fields;
+}
 
-    $post_query = new WP_Query( $post_args );
-    if ( $post_query->have_posts() ) :
-    while ( $post_query->have_posts() ) :
-    $post_query->the_post();
-    global $post;
+function get_works( $data ) {
+  if( $data['id']) return get_work_by_id($data);
 
-    $post_data[] = [
-        //記事ID
-        'id' => $post->ID,
-        //公開日
-        'time'  => get_the_time('Y.m.d'),
-        'title' => get_the_title(),
-        'thumbnail' => get_the_post_thumbnail_url( get_the_ID(),"large"),
-        'startData' => post_custom('startData'),
-        'endData' => post_custom('endData'),
-        'language' => post_custom('language'),
-        'FlameWork' => post_custom('FlameWork'),
-        'Use' => post_custom('Use'),
-        'link' => post_custom('link'),
-        'Github' => post_custom('Github'),
-        'category' => get_the_term_list($post->ID,'works_cat'),
-        'category_slug' => $cat_slug,
-        //タグ
-        'tags' =>  get_the_terms($post->ID, 'works_tag'),
-    ];
+  $default_args = [
+    'post_type'      => 'works',
+    'posts_per_page' => -1,
+    'post_status'    => 'publish',
+    'orderby'        => 'date',
+    'order'          => 'DESC'
+  ];
 
-    endwhile;
-    wp_reset_postdata();
-    endif;
+  $works = get_posts($default_args);
 
-    return $post_data;
-?>
+  if ( empty( $works ) ) {
+    return null;
+  }
+
+  $return_posts = array_map('get_work_fields', $works);
+
+  return $return_posts;
+}
+
+function get_work_by_id( $data ) {
+  global $default_args;
+  $post = get_post( $data['id'], OBJECT, $default_args);
+  if ( empty( $post ) ) {
+    return null;
+  }
+  $return_posts = get_work_fields($post);
+  return $return_posts;
+}
+
+add_action( 'rest_api_init', function () {
+  register_rest_route( 'custom/v1', '/works', array(
+    'methods' => 'GET',
+    'callback' => 'get_works',
+  ) );
+});

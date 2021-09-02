@@ -22,7 +22,7 @@ export async function getPostsWorksIds(){
 }
 
 export async function getPostData(id){
-  const post = await axios.get(`${apiUrl}/${id}/`);
+  const post = await axios.get(`${apiUrl}/?id=${id}/`);
   return { 
     post:post.data
   }

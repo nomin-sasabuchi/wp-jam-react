@@ -44,9 +44,6 @@ export const Contact = () => {
         console.log(error)
       })
   }
-  useEffect(() => {
-    console.log(formData);
-  })
 
   return (
     <Section text="お問い合わせ" imgPath="/top/ttl-contact.svg" bgColor="bg-gray">

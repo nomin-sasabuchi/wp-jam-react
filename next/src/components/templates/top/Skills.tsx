@@ -9,6 +9,7 @@ export const Skills = ({ posts }) => {
     { imgPath: "/top/level-icon2.svg", text: "個人で開発経験があるもの" },
     { imgPath: "/top/level-icon1.svg", text: "プロゲート等で学習済み" }
   ]
+  console.log(posts);
   return (
     <Section text="スキル" imgPath="/top/ttl-skills.svg">
       <div className="relative | mt-[6rem]">

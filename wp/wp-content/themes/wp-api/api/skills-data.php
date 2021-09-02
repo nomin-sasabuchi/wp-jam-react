@@ -1,35 +1,57 @@
-
 <?php
-    $post_data = [];
+function get_skill_fields($skill) {
+  $skill_custom = get_post_custom($skill->ID);
+  $skill_fields = [
+    //記事ID
+    'id' => $skill->ID,
+    // 公開日
+    'time' => date('Y.m.d', strtotime($skill->post_date)),
+    'title' => $skill->post_title,
+    'icon' => wp_get_attachment_url($skill_custom['icon'][0],'full'),
+    'level' => $skill_custom['level'],
+  ];
+  return $skill_fields;
+}
 
-    $post_args = [
-        'post_type'      => 'skills',
-        'posts_per_page' => -1,
-        'post_status'    => 'publish',
-        'orderby'        => 'date',
-        'order'          => 'DESC'
-    ];
+function get_skills( $data ) {
+  if( $data['id']) return get_skill_by_id($data);
 
-    $post_query = new WP_Query( $post_args );
-    if ( $post_query->have_posts() ) :
-    while ( $post_query->have_posts() ) :
-    $post_query->the_post();
-    global $post;
+  $default_args = [
+    'post_type'      => 'skills',
+    'posts_per_page' => -1,
+    'post_status'    => 'publish',
+    'orderby'        => 'date',
+    'order'          => 'DESC'
+  ];
 
+  $skills = get_posts($default_args);
 
-    $post_data[] = [
-        //記事ID
-        'id' => $post->ID,
-        //公開日
-        'time' => get_the_time('Y.m.d'),
-        'title' => get_the_title(),
-        'icon' =>  wp_get_attachment_image_src(SCF::get('icon'),'full')[0],
-        'level' => post_custom('level'),
-    ];
+  if ( empty( $skills ) ) {
+    return null;
+  }
 
-    endwhile;
-    wp_reset_postdata();
-    endif;
+  $return_posts = array_map('get_skill_fields', $skills);
 
-    return $post_data;
-?>
+  return $return_posts;
+}
+
+function get_skill_by_id( $data ) {
+  global $default_args;
+
+  $post = get_post( $data['id'], OBJECT, $default_args);
+
+  if ( empty( $post ) ) {
+    return null;
+  }
+
+  $return_posts = get_skill_fields($post);
+
+  return $return_posts;
+}
+
+add_action( 'rest_api_init', function () {
+  register_rest_route( 'custom/v1', '/skills', array(
+    'methods' => 'GET',
+    'callback' => 'get_skills',
+  ) );
+});
