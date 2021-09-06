@@ -1,6 +1,7 @@
 @import 'tools/_.css';
 @import 'generic/_.css';
 @import 'tailwind/_.css';
+@import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 
 html {
   font-size: resolve((10/375 * 100) * 1vw);

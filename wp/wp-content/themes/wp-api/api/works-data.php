@@ -34,9 +34,9 @@ function get_works( $data ) {
     'orderby'        => 'date',
     'order'          => 'DESC'
   ];
-
+  // $works = new WP_Query( $default_args );
   $works = get_posts($default_args);
-
+  // var_dump($works);
   if ( empty( $works ) ) {
     return null;
   }

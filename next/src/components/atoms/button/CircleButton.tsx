@@ -3,7 +3,7 @@ import React from 'react';
 type PropsType = {
   ExtraClass: string;
   href?: string;
-}
+};
 
 export const CircleButton = React.forwardRef<any, PropsType>(
   ({ ExtraClass, children, href }, ref) => {
@@ -15,6 +15,6 @@ export const CircleButton = React.forwardRef<any, PropsType>(
       >
         {children}
       </a>
-    )
+    );
   },
-)
+);

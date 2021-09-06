@@ -8,41 +8,41 @@ checked:next:before:opacity ,
 input[type='checkbox'],
 input[type='radio'] {
   &.checked\:next {
-    &\:hidden:checked+* {
+    &\:hidden:checked + * {
       display: none;
     }
 
-    &\:block:checked+* {
+    &\:block:checked + * {
       display: block;
     }
 
     &\::before {
-      &\:opacity-0+*::before {
+      &\:opacity-0 + *::before {
         opacity: 0;
       }
 
-      &\:opacity-1+*::before {
+      &\:opacity-1 + *::before {
         opacity: 1;
       }
 
-      &\:block:checked+*::before {
+      &\:block:checked + *::before {
         display: block;
       }
 
-      &\:hidden:checked+*::before {
+      &\:hidden:checked + *::before {
         display: none;
       }
     }
 
-    &\:opacity-1:checked+* {
+    &\:opacity-1:checked + * {
       opacity: 1;
     }
 
-    &\:opacity-0:checked+* {
+    &\:opacity-0:checked + * {
       opacity: 0;
     }
 
-    &\:visible:checked+* {
+    &\:visible:checked + * {
       visibility: visible;
     }
   }

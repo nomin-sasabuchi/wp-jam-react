@@ -17,7 +17,12 @@ export const Footer = () => {
             ExtraClass="bg-white | w-[50px] h-[50px]"
             href="https://github.com/sei12356"
           >
-            <Image src="/common/github-icon-bk.png" alt="github" width="34" height="32" />
+            <Image
+              src="/common/github-icon-bk.png"
+              alt="github"
+              width="34"
+              height="32"
+            />
           </CircleButton>
         </div>
         <p className="mt-[3rem] | text-center">
@@ -26,7 +31,8 @@ export const Footer = () => {
         <a
           className="mt-[1.5rem] | text-center | block"
           target="_blank"
-          href="https://icons8.jp/" rel="noreferrer"
+          href="https://icons8.jp/"
+          rel="noreferrer"
         >
           icons8ライセンス
         </a>

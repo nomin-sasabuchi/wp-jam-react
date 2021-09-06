@@ -12,7 +12,9 @@
     "lint:script:fix": "eslint 'src/**/*.{ts,tsx}' --fix",
     "lint:style:fix": "stylelint 'styles/**/*.css' --fix",
     "format": "prettier --write .",
-    "test-all": "npx yarn-run-all check-types format lint:script:fix lint:style:fix"
+    "all:fix": "npx yarn-run-all check-types format lint:script:fix lint:style:fix",
+    "prepare": "cd ../ && husky install next/.husky",
+    "lint-staged": "lint-staged"
   },
   "husky": {
     "hooks": {
@@ -20,17 +22,22 @@
     }
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "eslint"
+    "src/**/*.{ts,tsx}": [
+      "eslint",
+      "tsc --noEmit"
     ],
     "styles/**/*.css": [
       "stylelint"
+    ],
+    "*": [
+      "prettier --write"
     ]
   },
   "dependencies": {
     "@reduxjs/toolkit": "^1.6.0",
     "autoprefixer": "^10.2.6",
     "axios": "^0.21.1",
+    "framer-motion": "^4.1.17",
     "next": "11.0.1",
     "postcss": "^8.3.5",
     "postcss-import": "^14.0.2",
@@ -52,8 +59,8 @@
     "eslint": "^7.29.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-react": "^7.24.0",
-    "husky": "^6.0.0",
-    "lint-staged": "^11.0.0",
+    "husky": "^7.0.2",
+    "lint-staged": "^11.1.2",
     "postcss-math": "^0.0.10",
     "postcss-mixins": "^8.1.0",
     "postcss-nested": "^5.0.5",

@@ -24,7 +24,7 @@ module.exports = {
       white: {
         DEFAULT: '#ffffff',
       },
-      red:{
+      red: {
         DEFAULT: '#ff7676',
       },
       transparent: 'transparent',
@@ -34,7 +34,7 @@ module.exports = {
     },
     fontFamily: {
       'yu-gothic': `'游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic', sans-serif`,
-      'yu-mincho': `'游明朝体', 'Yu Mincho', YuMincho, 'Hiragino Mincho ProN', 'ヒラギノ明朝 ProN', 'MS PMincho', 'MS 明朝',sans-serif`,
+      oswald: `'Oswald', sans-serif`,
     },
     //既存のテーマを拡張したい場合は、extendを使用(themeに記述すると既定値を上書きしてしまう)
     extends: {},
@@ -44,8 +44,7 @@ module.exports = {
     extend: {},
   },
   //CSSの代わりにJavaScriptを使用して、新しいスタイルを挿入できる
-  plugins: [
-  ],
+  plugins: [],
   corePlugins: {
     container: false,
   },

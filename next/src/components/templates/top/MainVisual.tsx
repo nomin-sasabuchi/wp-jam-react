@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 import Image from 'next/image';
 
 export const MainVisual = () => {
@@ -10,12 +10,16 @@ export const MainVisual = () => {
       </div>
       {/* slider */}
       <div className="relative | overflow-hidden | mx-auto | w-full h-[calc(100vh-20rem)] | flex-1">
-        <Image layout={"fill"} className="object-cover w-full h-full" src="/top/mv1-pc.jpg" />
+        <Image
+          layout={'fill'}
+          className="object-cover w-full h-full"
+          src="/top/mv1-pc.jpg"
+        />
       </div>
       {/* right-item  */}
       <div className="w-[10rem] | relative">
         <span className="absolute top-[50%] left-[50%] | transform translate-y-[-50%] translate-x-[-50%] | w-[0.1rem] h-[22rem] | bg-gray | before before:absolute"></span>
       </div>
     </div>
-  )
-}
+  );
+};

@@ -8,7 +8,7 @@ function get_skill_fields($skill) {
     'time' => date('Y.m.d', strtotime($skill->post_date)),
     'title' => $skill->post_title,
     'icon' => wp_get_attachment_url($skill_custom['icon'][0],'full'),
-    'level' => $skill_custom['level'],
+    'level' => $skill_custom['level'][0],
   ];
   return $skill_fields;
 }

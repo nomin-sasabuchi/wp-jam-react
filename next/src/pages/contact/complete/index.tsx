@@ -6,7 +6,7 @@ const Complete: FC = () => {
     <DefaltLayout title="Complete">
       <p className="text-center">Complete</p>
     </DefaltLayout>
-  )
-}
+  );
+};
 
-export default Complete
+export default Complete;

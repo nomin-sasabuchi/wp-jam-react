@@ -6,8 +6,8 @@ const Post = ({ post }) => {
     <DefaltLayout>
       <p>テスト</p>
     </DefaltLayout>
-  )
-}
+  );
+};
 
 export default Post;
 
@@ -16,12 +16,12 @@ export const getStaticPaths = async () => {
   return {
     paths,
     fallback: false,
-  }
-}
+  };
+};
 
 export const getStaticProps = async ({ params }) => {
   const post = await getPostData(params.id);
   return {
-    props: { post }
-  }
-}
+    props: { post },
+  };
+};

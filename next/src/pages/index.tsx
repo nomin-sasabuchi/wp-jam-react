@@ -6,14 +6,14 @@ import { Skills } from '@/components/templates/top/Skills';
 import { Contact } from '@/components/templates/top/Contact';
 
 //apiデータ
-import { getPostsWorks } from '@/lib/postsWorks'
-import { getPostsSkills } from '@/lib/postsSkills'
+import { getPostsWorks } from '@/lib/postsWorks';
+import { getPostsSkills } from '@/lib/postsSkills';
 
-import { GetStaticProps } from 'next'
+import { GetStaticProps } from 'next';
 
 //redux
-import { jsonApi } from "@/stores/worksPosts";
-import { useDispatch, useSelector } from "react-redux";
+import { jsonApi } from '@/stores/worksPosts';
+import { useDispatch, useSelector } from 'react-redux';
 
 const Home: React.FC = ({ worksPosts, skillsPosts }) => {
   // const dispatch = useDispatch();
@@ -23,20 +23,20 @@ const Home: React.FC = ({ worksPosts, skillsPosts }) => {
   //     title: "テスト"
   //   })
   // )
-  // const dispatch = useDispatch();
-  // (() => dispatch(jsonApi()))();
-  // const selector = useSelector((state) => state);
-  // console.log(selector);
+  const dispatch = useDispatch();
+  (() => dispatch(jsonApi()))();
+  const selector = useSelector((state) => state);
+  console.log(selector);
   return (
     <DefaltLayout title="home">
       <MainVisual />
       <About />
       <Works posts={worksPosts} />
       <Skills posts={skillsPosts} />
-      <Contact />
+      {/* <Contact /> */}
     </DefaltLayout>
   );
-}
+};
 
 export default Home;
 
@@ -46,7 +46,7 @@ export const getStaticProps: GetStaticProps = async () => {
   return {
     props: {
       worksPosts,
-      skillsPosts
+      skillsPosts,
     },
-  }
-}
+  };
+};

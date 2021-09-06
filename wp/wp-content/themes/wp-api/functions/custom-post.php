@@ -57,15 +57,17 @@ function create_post_type_cat() {
 		//新規カスタムタクソノミーを反映させる投稿タイプの定義名
 			array(
 				'hierarchical' => true,
-				'label' => 'カテゴリー分類',
+				'label' => '制作物種類',
 				'show_ui' => true,
 				'query_var' => true,
 				'rewrite' => true,
-				'singular_label' => 'カテゴリー分類',
+				'singular_label' => '制作物種類',
 				'exclude_from_search' => true,
 			)
 	);
 }
+
+add_action( 'init', 'post_tag_checkbox', 1 );
 function post_tag_checkbox() {
 	global $wp_rewrite;
 	$rewrite = array(
@@ -74,8 +76,8 @@ function post_tag_checkbox() {
 	  'ep_mask' => EP_TAGS,
 	);
 	$labels = array(
-	  'name' => _x( 'Tags', 'taxonomy general name' ),
-	  'singular_name' => _x( 'Tag', 'taxonomy singular name' ),
+	  'name' => '使用言語',
+	  'singular_name' => '使用言語',
 	  'search_items' => __( 'Search Tags' ),
 	  'popular_items' => __( 'Popular Tags' ),
 	  'all_items' => __( 'All Tags' ),
@@ -89,9 +91,9 @@ function post_tag_checkbox() {
 	  'separate_items_with_commas' => __( 'Separate tags with commas' ),
 	  'add_or_remove_items' => __( 'Add or remove tags' ),
 	  'choose_from_most_used' => __( 'Choose from the most used tags' ),
-	  'not_found' => __( 'No tags found.' )
+		'not_found' => __( 'No tags found.' ),
 	);
-	register_taxonomy( 'works_tag', 'works', array(
+	register_taxonomy( 'works_tag_skills', 'works', array(
 		'hierarchical' => true,
 		'query_var' => 'tag',
 		'rewrite' => $rewrite,
@@ -99,11 +101,23 @@ function post_tag_checkbox() {
 		'show_ui' => true,
 		'show_admin_column' => true,
 		'_builtin' => true,
-		'labels' => $labels,
+		'labels' => $labels
 	));
-  }
-add_action( 'init', 'post_tag_checkbox', 1 );
+}
 
+add_action( 'init', 'post_tag', 1 );
+function post_tag() {
+	register_taxonomy( 'works_tag', 'works', array(
+		'hierarchical' => false,
+		'query_var' => 'tag',
+		'rewrite' => $rewrite,
+		'public' => true,
+		'show_ui' => true,
+		'show_admin_column' => true,
+		'_builtin' => true,
+		'labels' => $labels
+	));
+}
 /*-------------------------------------------------------
 
 Rest-API アイキャッチ画像追加

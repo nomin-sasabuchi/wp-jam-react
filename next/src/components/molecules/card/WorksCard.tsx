@@ -9,5 +9,5 @@ export const WorksCard = ({ title, thumbnail, startData, endData }) => {
         <p className="text-[1.8rem] mt-[0.5rem] font-bold">{title}</p>
       </div>
     </>
-  )
-}
+  );
+};

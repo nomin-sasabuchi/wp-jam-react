@@ -1,0 +1,7 @@
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"
+
+cd next/
+yarn lint-staged
+
+#https://zenn.dev/okkun/articles/f74cb21dcdefc1
