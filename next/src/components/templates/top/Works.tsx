@@ -2,6 +2,8 @@ import React from 'react';
 import Link from 'next/link';
 import { Section } from '@/components/molecules/outer/Section';
 import { WorksCard } from '@/components/molecules/card/WorksCard';
+import { typeWorks } from '@/types/Works';
+
 
 export const Works = ({ posts }) => {
   return (
@@ -15,7 +17,7 @@ export const Works = ({ posts }) => {
         <ul className="grid grid-cols-2 gap-x-[4rem] gap-y-[4rem]">
           {posts &&
             Array.from(Array(4).keys()).map((_, i) => {
-              const { id, title, thumbnail, startData, endData } = posts[i];
+              const { id, title, thumbnail, startData, endData }: typeWorks = posts[i];
               return (
                 <li className="relative" key={id}>
                   <Link href={`/works/posts/${id}/`}>

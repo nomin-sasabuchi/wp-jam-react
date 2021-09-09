@@ -1,14 +1,15 @@
 import { DefaltLayout } from '@/components/organismus/layaouts/DefaltLayout';
-import { FC } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
 import { getPostsWorks } from '@/lib/postsWorks';
 import { WorksCard } from '@/components/molecules/card/WorksCard';
 import { Pagination } from '@/components/organismus/layaouts/Pagination';
+type postsType = {
+  id: number, title: string, thumbnail: string, startData: string, endData: string
+};
 
-const Works: FC = ({ posts }) => {
-  console.log(posts);
+const Works = ({ posts }) => {
   return (
     <DefaltLayout title="Works">
       <div className="relative | h-[24rem] w-full | before before:bg-navy before:overlay before:bg-opacity-50 before:z-[1]">
@@ -29,8 +30,7 @@ const Works: FC = ({ posts }) => {
       </div>
       <ul className="container | grid grid-cols-2 gap-x-[4rem] gap-y-[4rem] | mt-[6rem]">
         {posts &&
-          posts.map((post) => {
-            const { id, title, thumbnail, startData, endData } = post;
+          posts.map(({ id, title, thumbnail, startData, endData }: postsType) => {
             return (
               <li className="relative" key={id}>
                 <Link href={`/works/posts/${id}/`}>

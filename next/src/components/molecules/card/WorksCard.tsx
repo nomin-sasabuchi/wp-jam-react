@@ -1,4 +1,11 @@
-export const WorksCard = ({ title, thumbnail, startData, endData }) => {
+type PropsWorksCard = {
+  title: string;
+  thumbnail: string;
+  startData: string;
+  endData: string;
+};
+
+export const WorksCard = ({ title, thumbnail, startData, endData }: PropsWorksCard) => {
   return (
     <>
       <div className="relative h-[28.9rem]">

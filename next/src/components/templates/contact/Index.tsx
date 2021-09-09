@@ -6,7 +6,7 @@ import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/router';
 
 type FormType = {
-  yourName: string;
+  yourname: string;
 };
 
 export const Index: FC = () => {

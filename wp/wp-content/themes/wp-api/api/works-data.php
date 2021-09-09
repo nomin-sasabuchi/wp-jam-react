@@ -15,10 +15,9 @@ function get_work_fields($work) {
     'Use' => $work_custom['Use'],
     'link' => $work_custom['link'],
     'Github' => $work_custom['Github'],
-    'category' => get_the_term_list($work->ID,'works_cat'),
-    // 'category_slug' => $cat_slug,
-    //タグ
-    'tags' =>  get_terms($work->ID, 'works_tag'),
+    'category' => get_the_terms($work->ID, 'works_cat'),
+    'skillsTags' =>  get_the_terms($work->ID, 'works_tag_skills'),
+    'freeTags' =>  get_the_terms($work->ID, 'works_tag'),
   ];
 
   return $work_fields;

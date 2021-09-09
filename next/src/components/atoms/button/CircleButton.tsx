@@ -5,7 +5,7 @@ type PropsType = {
   href?: string;
 };
 
-export const CircleButton = React.forwardRef<any, PropsType>(
+export const CircleButton: React.FC<PropsType> = React.forwardRef<any, PropsType>(
   ({ ExtraClass, children, href }, ref) => {
     return (
       <a

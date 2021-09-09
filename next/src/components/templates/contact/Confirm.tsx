@@ -2,12 +2,19 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 
-const Confirm = (props) => {
+type PropsFormType = {
+  values: {
+    yourname: string
+  }
+};
+
+
+const Confirm: React.FC<PropsFormType> = (props) => {
   const { values } = props;
   const router = useRouter();
 
   //コンバートする
-  const convertJsontoUrlencoded = (obj) => {
+  const convertJsontoUrlencoded = (obj: any) => {
     const str = [];
     for (const key in obj) {
       if (obj.hasOwnProperty(key)) {

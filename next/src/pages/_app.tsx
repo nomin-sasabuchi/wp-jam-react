@@ -1,8 +1,6 @@
 import '/styles/globals.css';
 import 'tailwindcss/tailwind.css';
 import { AppProps } from 'next/app';
-import { Provider } from 'react-redux';
-import store from '@/stores/';
 import { AnimatePresence } from 'framer-motion';
 
 export default function App({
@@ -10,11 +8,9 @@ export default function App({
   pageProps,
 }: AppProps): React.ReactElement {
   return (
-    <Provider store={store}>
-      <AnimatePresence exitBeforeEnter>
-        <Component {...pageProps} />
-      </AnimatePresence>
-    </Provider>
+    <AnimatePresence exitBeforeEnter>
+      <Component {...pageProps} />
+    </AnimatePresence>
   );
 }
 //FC 型つけ

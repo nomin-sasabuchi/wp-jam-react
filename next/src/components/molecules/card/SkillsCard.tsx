@@ -1,7 +1,13 @@
 import React from 'react';
 import Image from 'next/image';
 
-export const SkillsCard = ({ title, icon, level }) => {
+type PropsSkillsCard = {
+  title: string;
+  icon: string;
+  level: string;
+};
+
+export const SkillsCard = ({ title, icon, level }: PropsSkillsCard) => {
   return (
     <div className="flex px-[4rem] py-[2rem]">
       <div className="flex items-center | w-[80%]">
