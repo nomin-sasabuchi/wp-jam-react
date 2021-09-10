@@ -6,6 +6,8 @@ import { GetStaticProps } from 'next';
 import { getPostsWorks } from '@/lib/postsWorks';
 import { WorksCard } from '@/components/molecules/card/WorksCard';
 import { Pagination } from '@/components/organismus/layaouts/Pagination';
+
+
 type postsType = {
   id: number, title: string, thumbnail: string, startData: string, endData: string
 };
@@ -18,7 +20,7 @@ const Works = ({ posts }) => {
     ((+page - 1) * perpage) + perpage// 先頭位置か何番目までを切り取るか
   )
   return (
-    <DefaltLayout title="Works">
+    <DefaltLayout title="制作実績">
       <div className="relative | h-[24rem] w-full | before before:bg-navy before:overlay before:bg-opacity-50 before:z-[1]">
         <Image
           className="object-cover"

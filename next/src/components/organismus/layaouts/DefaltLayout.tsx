@@ -3,6 +3,7 @@ import { Header } from '@/components/organismus/layaouts/Header';
 import { Footer } from '@/components/organismus/layaouts/Footer';
 import { FC } from 'react';
 import { motion } from 'framer-motion';
+import { Breadcrumb } from '@/components/organismus/layaouts/Breadcrumb';
 
 export const DefaltLayout: FC<{ title: string }> = ({
   children,
@@ -16,6 +17,7 @@ export const DefaltLayout: FC<{ title: string }> = ({
         </Head>
 
         <Header />
+        <Breadcrumb title={title} />
         <main className="w-full">
           <motion.div
             initial={{ opacity: 0 }}
