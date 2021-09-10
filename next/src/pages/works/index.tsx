@@ -1,4 +1,5 @@
 import { DefaltLayout } from '@/components/organismus/layaouts/DefaltLayout';
+import { useRouter } from 'next/router'
 import Image from 'next/image';
 import Link from 'next/link';
 import { GetStaticProps } from 'next';
@@ -10,6 +11,12 @@ type postsType = {
 };
 
 const Works = ({ posts }) => {
+  const { query: { page = 1 } } = useRouter();
+  const perpage = 2;
+  const viewPost = posts.slice(
+    (+page - 1) * perpage, // 先頭位置
+    ((+page - 1) * perpage) + perpage// 先頭位置か何番目までを切り取るか
+  )
   return (
     <DefaltLayout title="Works">
       <div className="relative | h-[24rem] w-full | before before:bg-navy before:overlay before:bg-opacity-50 before:z-[1]">
@@ -29,8 +36,8 @@ const Works = ({ posts }) => {
         </h1>
       </div>
       <ul className="container | grid grid-cols-2 gap-x-[4rem] gap-y-[4rem] | mt-[6rem]">
-        {posts &&
-          posts.map(({ id, title, thumbnail, startData, endData }: postsType) => {
+        {viewPost &&
+          viewPost.map(({ id, title, thumbnail, startData, endData }: postsType) => {
             return (
               <li className="relative" key={id}>
                 <Link href={`/works/posts/${id}/`}>
@@ -47,7 +54,7 @@ const Works = ({ posts }) => {
             );
           })}
       </ul>
-      <Pagination totalCount={posts.length} />
+      <Pagination totalCount={posts.length} PER_PAGE={perpage} />
     </DefaltLayout>
   );
 };
