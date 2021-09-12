@@ -5,9 +5,10 @@ import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Breadcrumb } from '@/components/organismus/layaouts/Breadcrumb';
 
-export const DefaltLayout: FC<{ title: string }> = ({
+export const DefaltLayout = ({
   children,
   title = 'HP BY Next.js',
+  addBreadcrumb
 }) => {
   return (
     <>
@@ -17,7 +18,7 @@ export const DefaltLayout: FC<{ title: string }> = ({
         </Head>
 
         <Header />
-        <Breadcrumb title={title} />
+        <Breadcrumb title={title} addBreadcrumb={addBreadcrumb} />
         <main className="w-full">
           <motion.div
             initial={{ opacity: 0 }}

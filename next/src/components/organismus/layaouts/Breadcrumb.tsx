@@ -3,28 +3,26 @@ import { useRouter } from 'next/router';
 
 import React from 'react'
 
-export const Breadcrumb = ({ title }) => {
-  const { asPath } = useRouter();
-  const slicedPath = asPath.split('/');
-  const convertWord = 'posts';
-  let tmp = '/';
-  console.log(asPath);
-  const breadCrumbsList = slicedPath.map((path) => {
-    if (path === convertWord) {
-      tmp += `/${convertWord}/`;
-      return null;
-    }
-    return (tmp += path);
-  }).filter(Boolean);
+export const Breadcrumb = ({ title, addBreadcrumb }) => {
+  const defaultBreadcrumbList = [
+    { link: "/", text: "Home" }
+  ]
+  const breadcrumbList = addBreadcrumb ? defaultBreadcrumbList.concat(addBreadcrumb) : defaultBreadcrumbList;
+  const { pathname } = useRouter();
   return (
-    <ul className="flex">
-      {asPath == '/' || breadCrumbsList.map((link) => {
-        return (
+    <>
+      { pathname == "/" ||
+        <ul className="flex">
+          {breadcrumbList.map(({ link, text }) => {
+            return (
+              <li key={text}> <Link href={link}>{text}</Link></li>
+            )
+          })}
           <li>
-            <Link href={link}><a>{title}</a></Link>
+            {title}
           </li>
-        )
-      })}
-    </ul>
+        </ul>
+      }
+    </>
   )
 }
