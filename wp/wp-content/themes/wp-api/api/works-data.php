@@ -45,9 +45,13 @@ function get_works( $data ) {
   return $return_posts;
 }
 
+
+
 function get_work_by_id( $data ) {
   global $default_args;
   $post = get_post( $data['id'], OBJECT, $default_args);
+
+  // var_dump($post);
   if ( empty( $post ) ) {
     return null;
   }
@@ -55,9 +59,15 @@ function get_work_by_id( $data ) {
   return $return_posts;
 }
 
+
+
 add_action( 'rest_api_init', function () {
   register_rest_route( 'custom/v1', '/works', array(
     'methods' => 'GET',
     'callback' => 'get_works',
   ) );
 });
+
+// var_dump(WP_REST_Request);
+
+// add_action = 

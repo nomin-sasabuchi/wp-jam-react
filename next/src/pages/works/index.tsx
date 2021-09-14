@@ -13,12 +13,35 @@ type postsType = {
 };
 
 const Works = ({ posts }) => {
-  const { query: { page = 1 } } = useRouter();
+  //ページャー
+  const { query: { page = 1, filter = "All", keyword = "" } } = useRouter();
   const perpage = 2;
-  const viewPost = posts.slice(
+
+  //絞り込み
+  posts.filter((item) => {
+    if (item.title.indexOf(keyword) != -1) return item
+  });
+
+  const fillterData = filter === "All" ? posts : posts.filter((item) => {
+    const categories = item.category ? item.category.map((cat) => cat.name) : [];
+    return categories.includes(filter);
+  });
+
+  const postsData = fillterData.filter((item) => {
+    if (item.title.indexOf(keyword) != -1) return item
+  });
+  console.log(postsData);
+
+  const viewPost = postsData.slice(
     (+page - 1) * perpage, // 先頭位置
     ((+page - 1) * perpage) + perpage// 先頭位置か何番目までを切り取るか
   )
+  //カテゴリー抽出
+  const catsName = posts.reduce((prev, value) => {
+    const categories = value.category ? value.category.map((cat) => cat.name) : [];
+    return ["All", ...prev, ...categories];
+  }, []);
+  const catsNameList = Array.from(new Set(catsName));
   return (
     <DefaltLayout title="制作実績">
       <div className="relative | h-[24rem] w-full | before before:bg-navy before:overlay before:bg-opacity-50 before:z-[1]">
@@ -37,6 +60,34 @@ const Works = ({ posts }) => {
           </span>
         </h1>
       </div>
+      {/*  検索エリア */}
+      <form
+        method="get"
+        action="/works"
+        target="_top"
+        className="flex-center"
+      >
+        <input
+          type="text"
+          name="keyword"
+          className="border"
+        />
+        <button>検索</button>
+      </form>
+      <ul className="container flex space-x-[2rem] mt-[5rem]">
+        {catsNameList.map((catName) => {
+          return (
+            <li>
+              <Link href={{
+                pathname: '/works',
+                query: { page: 1, filter: catName }
+              }}>
+                <a>{catName}</a>
+              </Link>
+            </li>
+          );
+        })}
+      </ul>
       <ul className="container | grid grid-cols-2 gap-x-[4rem] gap-y-[4rem] | mt-[6rem]">
         {viewPost &&
           viewPost.map(({ id, title, thumbnail, startData, endData }: postsType) => {
@@ -56,7 +107,7 @@ const Works = ({ posts }) => {
             );
           })}
       </ul>
-      <Pagination totalCount={posts.length} PER_PAGE={perpage} />
+      <Pagination totalCount={postsData.length} PER_PAGE={perpage} querPathname="/works" queryFilter={filter} />
     </DefaltLayout>
   );
 };

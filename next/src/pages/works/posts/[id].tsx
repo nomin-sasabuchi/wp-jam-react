@@ -5,6 +5,7 @@ const Post = ({ post }: any) => {
   const addBreadcrumb = [
     { link: "/works", text: "制作一覧" }
   ]
+  console.log(post);
   return (
     <DefaltLayout title={post.title} addBreadcrumb={addBreadcrumb}>
 
