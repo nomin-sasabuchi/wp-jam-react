@@ -20,8 +20,8 @@ export async function getPostsWorksIds() {
   });
 }
 
-export async function getPostData(id) {
-  const post = await axios.get(`${apiUrl}/?id=${id}/`);
+export async function getPostData({params,context}) {
+  const post = await axios.get(`${apiUrl}/?id=${params.id}/preview`);
   return {
     post: post.data,
   };

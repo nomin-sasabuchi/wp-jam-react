@@ -8,7 +8,7 @@ const Post = ({ post }: any) => {
   console.log(post);
   return (
     <DefaltLayout title={post.title} addBreadcrumb={addBreadcrumb}>
-
+      <h1 className="text-[5rem] text-center">{post.title}</h1>
     </DefaltLayout>
   );
 };
@@ -23,8 +23,9 @@ export const getStaticPaths = async () => {
   };
 };
 
-export const getStaticProps = async ({ params }: any) => {
-  const post = await getPostData(params.id);
+export const getStaticProps = async ({ params, context }: any) => {
+  console.log(context);
+  const post = await getPostData({ params, context });
   return {
     props: post,
   };

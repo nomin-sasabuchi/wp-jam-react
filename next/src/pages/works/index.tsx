@@ -12,7 +12,7 @@ type postsType = {
   id: number, title: string, thumbnail: string, startData: string, endData: string
 };
 
-const Works = ({ posts }) => {
+const Works = ({ posts }: { posts: postsType[] }) => {
   //ページャー
   const { query: { page = 1, filter = "All", keyword = "" } } = useRouter();
   const perpage = 2;
@@ -90,7 +90,7 @@ const Works = ({ posts }) => {
       </ul>
       <ul className="container | grid grid-cols-2 gap-x-[4rem] gap-y-[4rem] | mt-[6rem]">
         {viewPost &&
-          viewPost.map(({ id, title, thumbnail, startData, endData }: postsType) => {
+          viewPost.map(({ id, title, thumbnail, startData, endData }) => {
             return (
               <li className="relative" key={id}>
                 <Link href={`/works/posts/${id}/`}>

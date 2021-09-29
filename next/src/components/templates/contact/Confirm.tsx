@@ -23,6 +23,7 @@ const Confirm: React.FC<PropsFormType> = (props) => {
     }
     return str.join('&');
   };
+
   //送信ボタンが実行された時に実行
   const sendSubmit = () => {
     const formDataConvert = convertJsontoUrlencoded(values);
@@ -51,6 +52,21 @@ const Confirm: React.FC<PropsFormType> = (props) => {
     router.push('contact/complete');
   };
 
+  useEffect(() => {
+    console.log("test");
+    const onBeforeunloadHandler = (event) => {
+      //現在IEしかメッセージカスタマイズできない;
+      event.returnValue = 'ページ離脱すると、保存されていた内容が失われます';
+    };
+    window.addEventListener('beforeunload', onBeforeunloadHandler);
+
+    return () => {
+      console.log("test2");
+      window.removeEventListener('beforeunload', onBeforeunloadHandler)
+    }
+  }, [])
+
+  if (!values.yourname) router.push("/contact/")
   return (
     <>
       <h2>確認画面</h2>

@@ -25,7 +25,6 @@ function get_work_fields($work) {
 
 function get_works( $data ) {
   if( $data['id']) return get_work_by_id($data);
-
   $default_args = [
     'post_type'      => 'works',
     'posts_per_page' => -1,
@@ -35,7 +34,7 @@ function get_works( $data ) {
   ];
   // $works = new WP_Query( $default_args );
   $works = get_posts($default_args);
-  // var_dump($works);
+  
   if ( empty( $works ) ) {
     return null;
   }
