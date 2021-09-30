@@ -1,12 +1,8 @@
 import React from 'react';
+import { objButton } from '@/types/button';
 
-type PropsType = {
-  ExtraClass: string;
-  href?: string;
-};
-
-export const CircleButton: React.FC<PropsType> = React.forwardRef<any, PropsType>(
-  ({ ExtraClass, children, href }, ref) => {
+export const CircleButton = React.forwardRef<any, objButton>(
+  ({ ExtraClass, children, href }: objButton, ref) => {
     return (
       <a
         className={`rounded-full | flex-center ${ExtraClass}`}

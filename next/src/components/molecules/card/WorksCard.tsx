@@ -1,11 +1,8 @@
-type PropsWorksCard = {
-  title: string;
-  thumbnail: string;
-  startData: string;
-  endData: string;
-};
+import { objWorks } from '@/types/Works';
 
-export const WorksCard = ({ title, thumbnail, startData, endData }: PropsWorksCard) => {
+type WorksCard = Pick<objWorks, 'title' | 'thumbnail' | 'startData' | 'endData'>
+
+export const WorksCard = ({ title, thumbnail, startData, endData }: WorksCard) => {
   return (
     <>
       <div className="relative h-[28.9rem]">

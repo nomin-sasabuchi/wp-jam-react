@@ -1,15 +1,21 @@
 import Head from 'next/head';
 import { Header } from '@/components/organismus/layaouts/Header';
 import { Footer } from '@/components/organismus/layaouts/Footer';
-import { FC } from 'react';
 import { motion } from 'framer-motion';
 import { Breadcrumb } from '@/components/organismus/layaouts/Breadcrumb';
+import { objBreadcrumb } from '@/types/breadcrumb';
+
+interface DefaltLayout {
+  children: React.ReactNode;
+  title: string,
+  addBreadcrumb?: objBreadcrumb
+}
 
 export const DefaltLayout = ({
   children,
-  title = 'HP BY Next.js',
+  title,
   addBreadcrumb
-}) => {
+}: DefaltLayout) => {
   return (
     <>
       <div className="flex flex-col items-center justify-center | min-h-screen | text-[1.6rem] font-yu-gothic">

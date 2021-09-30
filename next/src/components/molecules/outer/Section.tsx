@@ -1,15 +1,16 @@
 import { TitleH2 } from '@/components/atoms/title/TitleH2';
-import { PropsTitleH2 } from '@/types/TitleH2';
-type PropsSection = PropsTitleH2 & {
+import { objTitleH2 } from '@/types/TitleH2';
+interface Section extends objTitleH2 {
   bgColor?: string;
+  children: React.ReactNode;
 };
-export const Section: React.FC<Readonly<PropsSection>> = ({
+export const Section = ({
   text,
   imgPath,
   textColor,
   bgColor,
   children,
-}) => {
+}: Section) => {
   return (
     <section className={`pt-[8rem] pb-[12rem] ${bgColor}`}>
       <div className="container">

@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import { useRouter } from 'next/router';
 import axios from 'axios';
 
-type PropsFormType = {
+type FormType = {
   values: {
     yourname: string
   }
 };
 
 
-const Confirm: React.FC<PropsFormType> = (props) => {
+const Confirm = (props: FormType) => {
   const { values } = props;
   const router = useRouter();
 
@@ -53,8 +53,7 @@ const Confirm: React.FC<PropsFormType> = (props) => {
   };
 
   useEffect(() => {
-    console.log("test");
-    const onBeforeunloadHandler = (event) => {
+    const onBeforeunloadHandler = (event: any) => {
       //現在IEしかメッセージカスタマイズできない;
       event.returnValue = 'ページ離脱すると、保存されていた内容が失われます';
     };

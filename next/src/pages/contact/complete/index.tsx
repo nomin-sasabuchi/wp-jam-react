@@ -1,7 +1,6 @@
-import { FC } from 'react';
 import { DefaltLayout } from '@/components/organismus/layaouts/DefaltLayout';
 
-const Complete: FC = () => {
+const Complete = () => {
   return (
     <DefaltLayout title="Complete">
       <p className="text-center">Complete</p>

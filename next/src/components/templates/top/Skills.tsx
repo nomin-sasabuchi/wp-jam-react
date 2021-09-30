@@ -2,12 +2,10 @@ import React from 'react';
 import { Section } from '@/components/molecules/outer/Section';
 import Image from 'next/image';
 import { SkillsCard } from '@/components/molecules/card/SkillsCard';
+import { objSkill } from '@/types/skill';
 
-type postsType = {
-  title: string, icon: string, level: string
-};
 
-export const Skills = ({ posts }: any) => {
+export const Skills = ({ posts }: { posts: objSkill[] }) => {
   const skillsTitle = [
     { imgPath: '/top/level-icon3.svg', text: '実務経験があるもの' },
     { imgPath: '/top/level-icon2.svg', text: '個人で開発経験があるもの' },
@@ -50,7 +48,7 @@ export const Skills = ({ posts }: any) => {
         </ul>
         <ul className="flex flex-wrap justify-between">
           {posts &&
-            posts.map(({ title, icon, level }: postsType) => {
+            posts.map(({ title, icon, level }) => {
               return (
                 <li
                   className="w-[calc(50%-2rem)] | | border-b border-gray"

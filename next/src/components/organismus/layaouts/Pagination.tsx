@@ -1,14 +1,18 @@
-import Router from 'next/router';
 import Link from 'next/link';
 
+interface Pagination {
+  totalCount: number,
+  PER_PAGE: number,
+  querPathname: string,
+  queryFilter: string,
+}
 export const Pagination = (
   { totalCount,
     PER_PAGE,
     querPathname,
-    queryFilter = "All" }
+    queryFilter = "All" }: Pagination
 ) => {
-
-  const range = (start, end) =>
+  const range = (start: number, end: number) =>
     [...Array(end - start + 1)].map((_, i) => start + i)
   return (
     <ul className="flex-center space-x-[1rem]">

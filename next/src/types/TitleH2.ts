@@ -1,4 +1,4 @@
-export type PropsTitleH2 = {
+export interface objTitleH2 {
   text: string;
   imgPath: string;
   textColor?: string;

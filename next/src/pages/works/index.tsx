@@ -6,15 +6,14 @@ import { GetStaticProps } from 'next';
 import { getPostsWorks } from '@/lib/postsWorks';
 import { WorksCard } from '@/components/molecules/card/WorksCard';
 import { Pagination } from '@/components/organismus/layaouts/Pagination';
+import { objWorks } from '@/types/Works';
+type WorksCard = Pick<objWorks, 'id' | 'title' | 'thumbnail' | 'startData' | 'endData' | 'category'>
 
 
-type postsType = {
-  id: number, title: string, thumbnail: string, startData: string, endData: string
-};
-
-const Works = ({ posts }: { posts: postsType[] }) => {
+const Works = ({ posts }: { posts: WorksCard[] }) => {
   //ページャー
-  const { query: { page = 1, filter = "All", keyword = "" } } = useRouter();
+  const { query: { page = 1, filter = "All", keyword = "" }
+  } = useRouter();
   const perpage = 2;
 
   //絞り込み
@@ -37,8 +36,8 @@ const Works = ({ posts }: { posts: postsType[] }) => {
     ((+page - 1) * perpage) + perpage// 先頭位置か何番目までを切り取るか
   )
   //カテゴリー抽出
-  const catsName = posts.reduce((prev, value) => {
-    const categories = value.category ? value.category.map((cat) => cat.name) : [];
+  const catsName = posts.reduce((prev: string[], value) => {
+    const categories: string[] = value.category ? value.category.map((cat) => cat.name) : [];
     return ["All", ...prev, ...categories];
   }, []);
   const catsNameList = Array.from(new Set(catsName));

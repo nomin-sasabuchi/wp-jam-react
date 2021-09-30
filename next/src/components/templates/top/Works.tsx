@@ -2,10 +2,12 @@ import React from 'react';
 import Link from 'next/link';
 import { Section } from '@/components/molecules/outer/Section';
 import { WorksCard } from '@/components/molecules/card/WorksCard';
-import { typeWorks } from '@/types/Works';
+import { objWorks } from '@/types/Works';
+import { SquareButton } from '@/components/atoms/button/SquareButton';
+type WorksCard = Pick<objWorks, 'id' | 'title' | 'thumbnail' | 'startData' | 'endData'>
 
 
-export const Works = ({ posts }) => {
+export const Works = ({ posts }: { posts: WorksCard[] }) => {
   return (
     <Section
       text="制作実績"
@@ -17,7 +19,7 @@ export const Works = ({ posts }) => {
         <ul className="grid grid-cols-2 gap-x-[4rem] gap-y-[4rem]">
           {posts &&
             Array.from(Array(4).keys()).map((_, i) => {
-              const { id, title, thumbnail, startData, endData }: typeWorks = posts[i];
+              const { id, title, thumbnail, startData, endData } = posts[i];
               return (
                 <li className="relative" key={id}>
                   <Link href={`/works/posts/${id}/`}>
@@ -34,10 +36,10 @@ export const Works = ({ posts }) => {
               );
             })}
         </ul>
-        <Link href="/works">
-          <a className="flex-center | mx-auto mt-[6rem] | w-[23rem] h-[5rem] | text-white bg-yellow">
+        <Link href="/works" passHref>
+          <SquareButton>
             一覧を見る
-          </a>
+          </SquareButton>
         </Link>
       </div>
     </Section>

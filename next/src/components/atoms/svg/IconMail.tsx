@@ -1,6 +1,6 @@
-export const IconMail: React.FC<Readonly<{ ExtraClass: string }>> = ({
+export const IconMail = ({
   ExtraClass,
-}) => {
+}: { ExtraClass: string }) => {
   return (
     <svg viewBox="0 0 24 18" className={ExtraClass}>
       <path

@@ -34,7 +34,7 @@ export const Header = () => {
         </h1>
         <nav>
           <ul className="flex items-center | h-[10rem]">
-            {HeaderLink.map(({ link, text }) => (
+            {HeaderLink.map(({ link, text }: { link: string, text: string }) => (
               <li className="mr-[7rem]" key={text}>
                 <Link href={`/${link}`}>
                   <a>{text}</a>

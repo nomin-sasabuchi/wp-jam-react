@@ -8,24 +8,12 @@ import { Skills } from '@/components/templates/top/Skills';
 import { getPostsWorks } from '@/lib/postsWorks';
 import { getPostsSkills } from '@/lib/postsSkills';
 
-import { GetStaticProps } from 'next';
+import { GetStaticProps } from 'next'
+import { objWorks } from '@/types/Works';
+import { objSkill } from '@/types/skill';
+type WorksCard = Pick<objWorks, 'id' | 'title' | 'thumbnail' | 'startData' | 'endData' | 'category'>
 
-//redux
-// import { jsonApi } from '@/stores/worksPosts';
-// import { useDispatch, useSelector } from 'react-redux';
-
-const Home: React.FC = ({ worksPosts, skillsPosts }: any) => {
-  // const dispatch = useDispatch();
-  // const selector = useSelector((state) => state);
-  // dispatch(
-  //   worksPostsAction({
-  //     title: "テスト"
-  //   })
-  // )
-  // const dispatch = useDispatch();
-  // (() => dispatch(jsonApi()))();
-  // const selector = useSelector((state) => state);
-  // console.log(selector);
+const Home = ({ worksPosts, skillsPosts }: { worksPosts: WorksCard[], skillsPosts: objSkill[] }) => {
   return (
     <DefaltLayout title="home">
       <MainVisual />

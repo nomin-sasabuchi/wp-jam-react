@@ -1,7 +1,15 @@
 import React from 'react';
+import { objButton } from '@/types/button';
 
-export default function squareButton() {
-  return (
-    <a className="flex-center | mx-auto | w-[23rem] h-[5rem]">一覧を見る</a>
-  );
-}
+export const SquareButton = React.forwardRef<any, objButton>(
+  ({ ExtraClass, children, href }: objButton, ref) => {
+    return (
+      <a
+        className={`flex-center | mx-auto mt-[6rem] | w-[23rem] h-[5rem] | text-white bg-yellow ${ExtraClass}`}
+        ref={ref}
+        {...(href ? { href } : {})}
+      >
+        {children}
+      </a>
+    );
+  })

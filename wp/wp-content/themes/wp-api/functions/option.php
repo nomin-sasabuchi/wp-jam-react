@@ -16,3 +16,9 @@ function replace_preview_post_link ( $url ) {
   return $replace_url;
 }
 add_filter('preview_post_link', 'replace_preview_post_link');
+
+wp_localize_script(
+  'wp-api', 
+  'WP_API_Settings', 
+  array( 'root' => esc_url_raw( rest_url() ), 
+  'nonce' => wp_create_nonce( 'wp_rest' ) ) );

@@ -1,11 +1,11 @@
 import Image from 'next/image';
-import { PropsTitleH2 } from '@/types/TitleH2';
+import { objTitleH2 } from '@/types/TitleH2';
 
-export const TitleH2: React.VFC<Readonly<PropsTitleH2>> = ({
+export const TitleH2 = ({
   text,
   imgPath,
   textColor,
-}) => {
+}: objTitleH2) => {
   return (
     <h2
       className={`${textColor} before before:bg-yellow before:h-[4rem] before:w-[0.1rem] before:block before:mx-auto`}

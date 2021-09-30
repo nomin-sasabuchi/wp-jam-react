@@ -1,4 +1,4 @@
-export interface typeWorks {
+export interface objWorks {
   id: number,
   title: string,
   thumbnail: string,
